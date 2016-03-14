@@ -1,0 +1,62 @@
+#background {
+  background-image: url("../img/neptune.jpg");
+  height:100%;
+  width:100%;
+  background-size: cover;
+  position: relative;
+}
+.navbar {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+.navbar-toggle {
+  border-color: #04c9d3;
+  background-color: #5ec1d1;
+}
+.navbar-default .navbar-toggle:hover {
+  border-color: #06c2c9;
+  background-color: #39a9ba;
+}
+.center {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.opac {
+  opacity: 0.7;
+}
+.title {
+  text-align:center;
+  margin-top: 15%;
+  color: #d9d9d9;
+  text-shadow: #000 0px 0px 1px;
+  -webkit-font-smoothing: antialiased;
+}
+.btn {
+  border-color: #252D47;
+  background-color: #38446B;
+}
+.btn:hover {
+  border-color: #576AA6;
+  background-color: #5B6CA3;
+}
+.btn:active:focus {
+  border-color: #576AA6;
+  background-color: #5B6CA3;
+}
+.btn-success:active:focus {
+  border-color: #576AA6;
+  background-color: #5B6CA3;
+}
+#guess {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#footer {
+  /*background-color: #010101;*/
+  /*margin: 0 10px;*/
+  /*padding: 0 10px;*/
+  position: fixed;
+  bottom: 0;
+  color: #e6e6e6;
+}
