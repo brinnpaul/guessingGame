@@ -9,11 +9,11 @@ $(document).ready(function() {
 
   // Sets the value of which the user is trying to guess and initializes the guess counter.
 
-  var truth = function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+  function generateWinningNumber() {
+    return Math.floor(Math.random() * 100);
   }
 
-  var meaning = truth(0,100);
+  var theWinningNumber = generateWinningNumber();
 
   var guessCount = 0;
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
   $('#hint').on('click', function(e) {
     e.preventDefault();
 
-    $('#titleCount').html('The answer may be ' +meaning+',');
+    $('#titleCount').html('The answer may be ' +theWinningNumber+',');
     $('#titleCounth2').html('But what\'s the question?');
   })
 
@@ -40,13 +40,14 @@ $(document).ready(function() {
   $('#submitGuess').on('click', function(e) {
     e.preventDefault();
 
-    var guess = document.getElementById('guess').value;
+    var playerGuess = $('#guess').val();
+    $('#guess').val('');
 
     guessCount += 1;
 
     if (guessCount < 5) {
       $('#titleCount').html('Guess ['+guessCount+']');
-      if (guess == meaning) {
+      if (playerGuess == theWinningNumber) {
         $('#titleCount').html('Correct!');
         $('#titleCounth2').html('But what\'s the question?');
       }
@@ -56,19 +57,21 @@ $(document).ready(function() {
     }
 
     var hotOrCold = function(guess) {
-      if (guess == meaning) {
+      if (playerGuess == theWinningNumber) {
         return null;
-      } else if (Math.abs(guess - meaning) < 10) {
+      } else if (Math.abs(playerGuess - theWinningNumber) < 10) {
         return 'You\'re getting somewhere!';
       } else {
         return "You know nothing, Jon Snow!";
       }
+
     };
 
-    $('#hotOrCold').html(hotOrCold(guess));
+    $('#hotOrCold').html(hotOrCold(playerGuess));
 
-    console.log('target: ' + meaning);
-    console.log('guess: ' + guess);
+
+    console.log('target: ' + theWinningNumber);
+    console.log('guess: ' + playerGuess);
     console.log('count: ' + guessCount);
 
   });
